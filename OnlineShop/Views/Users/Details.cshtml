@@ -1,0 +1,62 @@
+﻿@model OnlineShop.Models.Users
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h2>Details</h2>
+
+                    <div>
+                        <h4>Users</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Fname)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Fname)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Lname)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Lname)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Username)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Username)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Password)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Password)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
