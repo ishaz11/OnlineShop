@@ -32,19 +32,13 @@
                                         @Html.DisplayNameFor(model => model.Price)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Qty)
+                                        Stock
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Available)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Photo1)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Photo2)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Photo3)
+                                        
                                     </th>
                                     <th></th>
                                 </tr>
@@ -72,12 +66,7 @@
                                     <td>
                                         <img src="@Html.DisplayFor(modelItem => item.Photo1)" width="80px" height="50px" />
                                     </td>
-                                    <td> 
-                                        <img src="@Html.DisplayFor(modelItem => item.Photo2)" width="80px" height="50px" />
-                                    </td>
-                                    <td>
-                                        <img src="@Html.DisplayFor(modelItem => item.Photo3)" width="80px" height="50px" />
-                                    </td>
+                                   
                                     <td>
                                         @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
                                         @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |

@@ -386,49 +386,58 @@
         <div class="content-body">
 
             @*<div class="row page-titles mx-0">
-            <div class="col p-md-0">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
-                </ol>
-            </div>
-        </div>*@
+                    <div class="col p-md-0">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                        </ol>
+                    </div>
+                </div>*@
             <!-- row -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                @RenderBody()
+                                <!-- #/ container -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            @RenderBody()
-            <!-- #/ container -->
-        </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+                <!--**********************************
+                    Content body end
+                ***********************************-->
+                <!--**********************************
+                    Footer start
+                ***********************************-->
+                @*<div class="footer">
+                        <div class="copyright">
+                            <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+                        </div>
+                    </div>*@
+                <!--**********************************
+                    Footer end
+                ***********************************-->
             </div>
+            <!--**********************************
+                Main wrapper end
+            ***********************************-->
+            <!--**********************************
+                Scripts
+            ***********************************-->
+            <script src="/MyLayout/plugins/common/common.min.js"></script>
+            <script src="/MyLayout/js/custom.min.js"></script>
+            <script src="/MyLayout/js/settings.js"></script>
+            <script src="/MyLayout/js/gleek.js"></script>
+            <script src="/MyLayout/js/styleSwitcher.js"></script>
+
+            <script src="/MyLayout/plugins/tables/js/jquery.dataTables.min.js"></script>
+            <script src="/MyLayout/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+            <script src="/MyLayout/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
         </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
-    </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <script src="/MyLayout/plugins/common/common.min.js"></script>
-    <script src="/MyLayout/js/custom.min.js"></script>
-    <script src="/MyLayout/js/settings.js"></script>
-    <script src="/MyLayout/js/gleek.js"></script>
-    <script src="/MyLayout/js/styleSwitcher.js"></script>
-
-    <script src="/MyLayout/plugins/tables/js/jquery.dataTables.min.js"></script>
-    <script src="/MyLayout/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
-    <script src="/MyLayout/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
-
 </body>
 
 </html>

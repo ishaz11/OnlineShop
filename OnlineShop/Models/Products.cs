@@ -24,7 +24,8 @@ namespace OnlineShop.Models
         [Required(ErrorMessage = "Price Required")]
         [DataType(DataType.Currency)]
         [Display(Name = "Price")]
-        public Decimal ? Price { get; set; }
+        //[DisplayFormat(DataFormatString = "{0:C0}")]
+        public decimal ? Price { get; set; }
 
         [Required(ErrorMessage = "Quantity Required")]
         [Display(Name = "Quantity")]

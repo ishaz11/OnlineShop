@@ -157,6 +157,18 @@
     <Compile Include="Migrations\202202281729479_migrationDatafile3.designer.cs">
       <DependentUpon>202202281729479_migrationDatafile3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203041828596_add contact number.cs" />
+    <Compile Include="Migrations\202203041828596_add contact number.designer.cs">
+      <DependentUpon>202203041828596_add contact number.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203050549340_change price to float.cs" />
+    <Compile Include="Migrations\202203050549340_change price to float.designer.cs">
+      <DependentUpon>202203050549340_change price to float.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203050554050_change price to decimal.cs" />
+    <Compile Include="Migrations\202203050554050_change price to decimal.designer.cs">
+      <DependentUpon>202203050554050_change price to decimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\ProductPhoto.cs" />
@@ -5399,6 +5411,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202281729479_migrationDatafile3.resx">
       <DependentUpon>202202281729479_migrationDatafile3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203041828596_add contact number.resx">
+      <DependentUpon>202203041828596_add contact number.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203050549340_change price to float.resx">
+      <DependentUpon>202203050549340_change price to float.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203050554050_change price to decimal.resx">
+      <DependentUpon>202203050554050_change price to decimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

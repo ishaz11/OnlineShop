@@ -53,20 +53,20 @@ namespace OnlineShop.Controllers
             string fileName1 = Path.GetFileNameWithoutExtension(products.File1.FileName);
             string extension1 = Path.GetExtension(products.File1.FileName);
             fileName1 = fileName1 + DateTime.Now.ToString("yymmssfff") + extension1;
-            products.Photo1 = "../Images/" + fileName1;
-            fileName1 = Path.Combine(Server.MapPath("../Images/"), fileName1);
+            products.Photo1 = "/Images/" + fileName1;
+            fileName1 = Path.Combine(Server.MapPath("/Images/"), fileName1);
 
             string fileName2 = Path.GetFileNameWithoutExtension(products.File2.FileName);
             string extension2 = Path.GetExtension(products.File2.FileName);
             fileName2 = fileName2 + DateTime.Now.ToString("yymmssfff") + extension2;
-            products.Photo2 = "../Images/" + fileName2;
-            fileName2 = Path.Combine(Server.MapPath("../Images/"), fileName2);
+            products.Photo2 = "/Images/" + fileName2;
+            fileName2 = Path.Combine(Server.MapPath("/Images/"), fileName2);
 
             string fileName3 = Path.GetFileNameWithoutExtension(products.File3.FileName);
             string extension3 = Path.GetExtension(products.File3.FileName);
             fileName3 = fileName3 + DateTime.Now.ToString("yymmssfff") + extension3;
-            products.Photo3 = "../Images/" + fileName3;
-            fileName3 = Path.Combine(Server.MapPath("../Images/"), fileName3);
+            products.Photo3 = "/Images/" + fileName3;
+            fileName3 = Path.Combine(Server.MapPath("/Images/"), fileName3);
 
 
             if (ModelState.IsValid)

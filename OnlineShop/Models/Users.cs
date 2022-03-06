@@ -19,6 +19,10 @@ namespace OnlineShop.Models
         [Display(Name = "Last Name")]
         public string Lname { get; set; }
 
+        [Required(ErrorMessage = " Required")]
+        [RegularExpression("^[0-9]{11}$", ErrorMessage = "Invalid Contact Number")]
+        public string ContactNumber { get; set; }
+
         [Required(ErrorMessage = "Username Required")]
         [Display(Name = "Username")]
         public string Username { get; set; }

@@ -46,7 +46,7 @@ namespace OnlineShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,Fname,Lname,Username,Password")] Users users)
+        public ActionResult Create(Users users)
         {
             if (ModelState.IsValid)
             {
