@@ -50,6 +50,7 @@ namespace OnlineShop.Controllers
         {
             if (ModelState.IsValid)
             {
+                users.Role = "Reseller";
                 db.Users.Add(users);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -114,6 +115,39 @@ namespace OnlineShop.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+    
+        public ActionResult Login(Users users)
+        {
+
+            //bool exist = db.Users.Any(x => x.Username == users.Username && x.Password == users.Password);
+            //bool exist = users.Username == "admin" && users.Password =="1234";
+
+            if (users.Username == "admin" && users.Password == "1234")
+            {
+                return RedirectToAction("Index", "Users");
+            }
+
+            //users.Role = "Reseller";
+            //db.Users.Add(users);
+            //db.SaveChanges();
+
+            else
+            {
+                return View(users);
+            }
+
+
+
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -31,5 +31,8 @@ namespace OnlineShop.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
+        [Display(Name = "Role")]
+        public string Role { get; set; }
     }
 }

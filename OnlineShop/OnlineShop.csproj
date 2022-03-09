@@ -169,6 +169,10 @@
     <Compile Include="Migrations\202203050554050_change price to decimal.designer.cs">
       <DependentUpon>202203050554050_change price to decimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203091150375_migration add role.cs" />
+    <Compile Include="Migrations\202203091150375_migration add role.designer.cs">
+      <DependentUpon>202203091150375_migration add role.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\ProductPhoto.cs" />
@@ -5375,6 +5379,7 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -5420,6 +5425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203050554050_change price to decimal.resx">
       <DependentUpon>202203050554050_change price to decimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203091150375_migration add role.resx">
+      <DependentUpon>202203091150375_migration add role.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
