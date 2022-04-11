@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">Users</h4>
+                    <h4 class="card-title">Members</h4>
                     <p>
                         <a href="@Url.Action("Create", "Users")" class="btn mb-1 btn-primary">Create New</a>
                     </p>
@@ -19,11 +19,9 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Fname)
+                                        Member's Name
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Lname)
-                                    </th>
+                                   
                                     <th>
                                         @Html.DisplayNameFor(model => model.Username)
                                     </th>
@@ -38,11 +36,9 @@
                                 {
                                     <tr>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Fname)
+                                            @Html.DisplayFor(modelItem => item.Lname), @Html.DisplayFor(modelItem => item.Fname)
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Lname)
-                                        </td>
+                                    
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Username)
                                         </td>

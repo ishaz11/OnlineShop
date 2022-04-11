@@ -11,5 +11,6 @@ namespace OnlineShop.Models
         public DbSet<Users> Users { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<ProductPhoto> ProductPhotos { get; set; }
+        public DbSet<Orders> Orders { get; set; }
     }
 }

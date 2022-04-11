@@ -1,0 +1,90 @@
+﻿@model IEnumerable<OnlineShop.Models.Orders>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders</h2>
+
+@*<p>
+    <a href="@Url.Action("Create", "Orders")" class="btn mb-1 btn-primary">Create New</a>
+</p>*@
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered zero-configuration">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Products.ProductName)
+                </th>
+                <th>
+                    Order From
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderCount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateCreated)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Products.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Users.Lname),  @Html.DisplayFor(modelItem => item.Users.Fname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderCount)
+                    </td>
+                    <td>
+                        @{ if (item.Status == "Pending")
+                            {
+                                <span class="label label-warning">Pending</span>
+                            }
+                            else if (item.Status == "Confirmed")
+                            {
+                                <span class="label label-primary">Confirmed</span>
+                            }
+                            else
+                            {
+                                <span class="label label-success">Completed</span>
+                            }
+                        }
+
+                        @*<span class="label label-primary">Primary</span>*@
+                       
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateCreated)
+                    </td>
+                    <td>
+                        @{if (item.Status == "Pending")
+                            {
+                                <div class="btn-group">
+                                    @Html.ActionLink("Confirm", "Edit", new { id = item.OrderID }, new { @class = "btn mb-1 btn-primary" })
+                                    @Html.ActionLink("Decline", "Details", new { id = item.OrderID }, new { @class = "btn mb-1 btn-danger" })
+                                </div>
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Details", "Details", new { id = item.OrderID }, new { @class = "btn mb-1 btn-primary" })
+                            }
+
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

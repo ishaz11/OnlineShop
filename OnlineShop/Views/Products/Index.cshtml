@@ -61,7 +61,15 @@
                                         @Html.DisplayFor(modelItem => item.Qty)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Available)
+                                        @{if (item.Qty > 0)
+                                            {
+                                                <span class="label label-info">Stocks Available</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="label label-danger">Out of Stock</span>
+                                            }
+                                        }
                                     </td>
                                     <td>
                                         <img src="@Html.DisplayFor(modelItem => item.Photo1)" width="80px" height="50px" />
