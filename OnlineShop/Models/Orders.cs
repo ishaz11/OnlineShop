@@ -30,6 +30,14 @@ namespace OnlineShop.Models
         [Display(Name = "Date Created")]
         public DateTime DateCreated { get; set; }
 
- 
+       
+        public DateTime DateConfirmed { get; set; }
+
+        public DateTime DateCompleted { get; set; }
+
+        [Display(Name = "Pick Up Date")]
+        public DateTime PickUpDate { get; set; }
+
+
     }
 }

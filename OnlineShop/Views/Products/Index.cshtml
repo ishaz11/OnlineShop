@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineShop.Models.Products>
+﻿@model OnlineShop.Models.Products
 
 @{
     ViewBag.Title = "Index";
@@ -6,8 +6,85 @@
 
 
 @*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+<!--Modal Remove Product-->
+<div class="modal fade" id="removeProductModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Remove Stocks</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-validation">
+                    <form id="removeStock" class="form-valide" action="#" method="post">
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label" for="Fname">
+                                Quantity <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                @*@Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter amount..", @required = "", @onclick = "isNumber()", @min = "0" } })*@
+                                <input id="removeQty" name="removeQty" type="number" class="form-control" placeholder="Enter amount.." required onclick = "isNumber()" min = "0" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label" for="Fname">
+                                Note <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                <input id="txtNote" name="Note" type="text" class = "form-control" placeholder = "Enter note.." required />                            
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="btnRemoveStocks" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--ModalRemove Product-->
+<!--Modal Add Product-->
+<div class="modal fade" id="productsModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Stocks</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-validation">
+                    <form id="addStock" class="form-valide" action="#" method="post">
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label" for="Fname">
+                                Quantity <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter amount..", @required = "", @onclick = "isNumber()", @min = "0" } })
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="btnAddStock" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal-->
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -16,72 +93,99 @@
 
                     <h4 class="card-title">Products</h4>
                     <p>
+                        @*<button class="btn mb-1 btn-primary" data-toggle="modal" data-target="#productsModal">Create New</button>*@
                         <a href="@Url.Action("Create", "Products")" class="btn mb-1 btn-primary">Create New</a>
+
+
+                    </p>
                     </p>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered zero-configuration">
-                            <thead>
+                            <thead class="btn-success">
                                 <tr>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.ProductName)
+                                        Product
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Description)
+                                        Description
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Price)
+                                        Price
                                     </th>
                                     <th>
                                         Stock
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Available)
+                                        @*@Html.DisplayNameFor(model => model.Available)*@
+                                        Status
                                     </th>
                                     <th>
-                                        
+
                                     </th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                @foreach (var item in Model)
+                                @foreach (var item in ViewBag.Products)
                                 {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ProductName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Price)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Qty)
-                                    </td>
-                                    <td>
-                                        @{if (item.Qty > 0)
-                                            {
-                                                <span class="label label-info">Stocks Available</span>
+                                    <tr>
+                                        <td>
+                                            @item.ProductName
+                                        </td>
+                                        <td>
+                                            @item.Description
+                                        </td>
+                                        <td>
+                                            @item.Price
+                                        </td>
+                                        <td>
+                                            @item.Qty
+                                        </td>
+                                        <td>
+                                            @{if (item.Qty > 0)
+                                                {
+                                                    <span class="label label-info">Stocks Available</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="label label-danger">Out of Stock</span>
+                                                }
                                             }
-                                            else
-                                            {
-                                                <span class="label label-danger">Out of Stock</span>
+                                        </td>
+                                        <td>
+                                            <img src="@item.Photo1" width="80px" height="50px" />
+                                        </td>
+
+                                        <td>
+                                            @{ if (item.Qty == 0)
+                                                {
+                                                    <div class="btn-group">
+                                                        @*@Html.ActionLink("Re-stock", "Restock", new { id = item.ProductID }, new { @class = "btn mb-1 btn-primary", @onclick = "addStock("+item.ProductID+)" })*@
+                                                        <button class="btn mb-1 btn-primary" onclick="getID(@item.ProductID)" data-toggle="modal" data-target="#productsModal">Re-stock</button>
+                                                    </div>
+                                                    @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "btn mb-1 btn-secondary" })
+                                                }
+                                                else
+                                                {
+                                        <div class="btn-group">
+                                            <button class="btn mb-1 btn-primary" onclick="getID(@item.ProductID)" data-toggle="modal" data-target="#productsModal">Restock</button>
+                                            @*@Html.ActionLink("Add Stocks", "Edit", new { id = item.ProductID }, new { @class = "btn mb-1 btn-primary" })*@
+                                            @*@Html.ActionLink("Remove Stocks", "Details", new { id = item.ProductID }, new { @class = "btn mb-1 btn-danger" })*@
+                                            <button class="btn mb-1 btn-danger" onclick="getID(@item.ProductID)" data-toggle="modal" data-target="#removeProductModal">Remove Stocks</button>
+                                        </div>
+
+                                                    @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "btn mb-1 btn-secondary" })
+                                                }
+
                                             }
-                                        }
-                                    </td>
-                                    <td>
-                                        <img src="@Html.DisplayFor(modelItem => item.Photo1)" width="80px" height="50px" />
-                                    </td>
-                                   
-                                    <td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
-                                        @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
-                                    </td>
-                                </tr>
+                                            @*@Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })*@
+                                        </td>
+                                    </tr>
                                 }
+
                             </tbody>
 
                         </table>
@@ -91,3 +195,89 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    var ProductID;
+    var ProductQty;
+    var ProductNote;
+    $(document).ready(function () {
+
+        addStocks()
+        removeStocks()
+    })
+
+    function getID(id) {
+        ProductID = parseInt(id);
+    }
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+    function addStocks() {
+        $("#btnAddStock").click(function () {
+
+            justValidate = true
+            if (document.getElementById("addStock").checkValidity()) {
+                ProductQty = document.getElementById("Qty").value;
+                $.ajax({
+                    type: "POST",
+                    url: "/Products/addStock",
+                    data: {
+                        ProductID: ProductID,
+                        Qty: ProductQty,
+                    },
+                    success: function () {
+                        alert('Success')
+                        setTimeout('$("#btnSave").removeAttr("disabled")', 2500);
+                        document.getElementById("addStock").reset();
+                        window.location.href = "/Products/Index"
+
+                    }
+                })
+            } else {
+                alert('Please fill all required field')
+            }
+        })
+    }
+
+    function removeStocks() {
+        $("#btnRemoveStocks").click(function () {
+
+            justValidate = true
+            if (document.getElementById("removeStock").checkValidity()) {
+                ProductQty = document.getElementById("removeQty").value;
+                ProductNote = document.getElementById("txtNote").value;
+                $.ajax({
+                    type: "POST",
+                    url: "/Products/RemoveStock",
+                    data: {
+                        ProductID: ProductID,
+                        Qty: ProductQty,
+                        Note: ProductNote,
+                    },
+                    success: function () {
+                        alert('Success')
+                        setTimeout('$("#btnRemoveStocks").removeAttr("disabled")', 2500);
+                        document.getElementById("removeStock").reset();
+                        window.location.href = "/Products/Index"
+
+                    }
+                })
+            } else {
+                alert('Please fill all required field')
+            }
+        })
+    }
+</script>

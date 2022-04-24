@@ -25,32 +25,33 @@ namespace OnlineShop.Models
         [DataType(DataType.Currency)]
         [Display(Name = "Price")]
         //[DisplayFormat(DataFormatString = "{0:C0}")]
-        public decimal ? Price { get; set; }
+        public decimal? Price { get; set; }
 
         [Required(ErrorMessage = "Quantity Required")]
         [Display(Name = "Quantity")]
         public int Qty { get; set; }
-       
-        [Display(Name ="Available")]
-        public bool Available { get; set; } 
-       
-        [Display(Name ="Photo #1")]
 
+        [Display(Name = "Available")]
+        public bool Available { get; set; }
+
+        [Display(Name = "Photo #1")]
         public string Photo1 { get; set; }
 
-        [Display(Name = "Photo #2")]
 
+        [Display(Name = "Photo #2")]
         public string Photo2 { get; set; }
 
         [Display(Name = "Photo #3")]
-   
         public string Photo3 { get; set; }
 
         [NotMapped]
+        //[Required(ErrorMessage = "Required")]
         public HttpPostedFileBase File1 { get; set; }
         [NotMapped]
+        //[Required(ErrorMessage = "Required")]
         public HttpPostedFileBase File2 { get; set; }
         [NotMapped]
+        //[Required(ErrorMessage = "Required")]
         public HttpPostedFileBase File3 { get; set; }
     }
 }

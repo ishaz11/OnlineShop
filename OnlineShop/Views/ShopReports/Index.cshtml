@@ -1,0 +1,95 @@
+﻿@model IEnumerable<OnlineShop.Models.ShopReports>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Shop Report</h4>
+                    <p>
+                        @*<a href="@Url.Action("Create", "ShopReports")" class="btn mb-1 btn-primary">Create New</a>*@
+                        <a href="#" class="btn mb-1 btn-primary">Print</a>
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered zero-configuration">
+                            <thead class="btn-success">
+                                <tr>
+                                    <th>
+                                        Product Name
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                    <th>
+                                        Member
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
+                                    <th>
+                                        Note
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                   
+                                    @*<th></th>*@
+                                </tr>
+                            </thead>
+
+                            @foreach (var item in ViewBag.shopReports)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Products.ProductName
+                                    </td>
+                                    <td>
+                                        @item.Action
+                                    </td>
+
+                                    @{
+                                        if (item.Users == null)
+                                        {
+                                            <td>
+                                                N/A
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                item.Users.Lname, item.Users.Fname
+                                            </td>
+                                        }
+                                    }
+                                    <td>
+                                        @item.Quantity
+                                    </td>
+                                    <td>
+                                        @item.Note
+                                    </td>
+                                    <td>
+                                        @item.Date
+                                    </td>
+                                    
+                                    @*<td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.reportID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.reportID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.reportID })
+                                    </td>*@
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

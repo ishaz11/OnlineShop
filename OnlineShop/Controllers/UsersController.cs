@@ -17,7 +17,8 @@ namespace OnlineShop.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            ViewBag.users = db.Users.ToList();
+            return View();
         }
 
         // GET: Users/Details/5
@@ -36,27 +37,28 @@ namespace OnlineShop.Controllers
         }
 
         // GET: Users/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(Users users)
         {
-            if (ModelState.IsValid)
-            {
-                users.Role = "Reseller";
-                db.Users.Add(users);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(users);
+            users.Role = "Reseller";
+            users.Password = users.Username;
+            users.Role = "Member";
+            db.Users.Add(users);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+            //return View(users);
         }
 
         // GET: Users/Edit/5
@@ -123,7 +125,7 @@ namespace OnlineShop.Controllers
         }
 
         [HttpPost]
-    
+
         public ActionResult Login(Users users)
         {
 

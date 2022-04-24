@@ -12,5 +12,7 @@ namespace OnlineShop.Models
         public DbSet<Products> Products { get; set; }
         public DbSet<ProductPhoto> ProductPhotos { get; set; }
         public DbSet<Orders> Orders { get; set; }
+
+        public DbSet<ShopReports> ShopReports { get; set; }
     }
 }

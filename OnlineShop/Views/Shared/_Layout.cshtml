@@ -10,7 +10,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/MyLayout/images/favicon.png">
     <!-- Custom Stylesheet -->
     <link href="/MyLayout/css/style.css" rel="stylesheet">
-    <link href="/MyLayout/./plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/MyLayout/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/MyLayout/plugins/toastr/css/toastr.min.css" rel="stylesheet">
+
+
+
 
 </head>
 
@@ -253,8 +257,6 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="@Url.Action("Index", "Products")">View</a></li>
-                            <li><a href="/MyLayout/layout-one-column.html">Supplies</a></li>
-
                         </ul>
                     </li>
 
@@ -264,8 +266,18 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="@Url.Action("Index", "Orders")">View</a></li>
-                            <li><a href="./email-read.html">Pending</a></li>
-                            <li><a href="./email-compose.html">On going</a></li>
+                            @*<li><a href="./email-read.html">Pending</a></li>
+                                <li><a href="./email-compose.html">On going</a></li>*@
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-printer menu-icon"></i> <span class="nav-text">Reports</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="@Url.Action("Index", "ShopReports")">View</a></li>
+                            @*<li><a href="./email-read.html">Pending</a></li>
+                                <li><a href="./email-compose.html">On going</a></li>*@
                         </ul>
                     </li>
                     <!--<li>
@@ -436,6 +448,12 @@
             <script src="/MyLayout/plugins/tables/js/jquery.dataTables.min.js"></script>
             <script src="/MyLayout/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
             <script src="/MyLayout/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
+            <script src="/MyLayout/plugins/toastr/js/toastr.min.js"></script>
+            <script src="/MyLayout/plugins/toastr/js/toastr.init.js"></script>
+
+            <script src="/MyLayout/plugins/validation/jquery.validate.min.js"></script>
+            <script src="/MyLayout/plugins/validation/jquery.validate-init.js"></script>
 
         </div>
 </body>

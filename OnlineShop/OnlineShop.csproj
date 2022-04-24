@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -51,6 +51,9 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -128,72 +131,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersAPIController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsAPIController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ShopReportsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202202190932524_addUsers.cs" />
-    <Compile Include="Migrations\202202190932524_addUsers.designer.cs">
-      <DependentUpon>202202190932524_addUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202202251054237_Add Product Photo and Products.cs" />
-    <Compile Include="Migrations\202202251054237_Add Product Photo and Products.designer.cs">
-      <DependentUpon>202202251054237_Add Product Photo and Products.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202202281511416_add photos to products.cs" />
-    <Compile Include="Migrations\202202281511416_add photos to products.designer.cs">
-      <DependentUpon>202202281511416_add photos to products.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202202281625580_migrationDatafile.cs" />
-    <Compile Include="Migrations\202202281625580_migrationDatafile.designer.cs">
-      <DependentUpon>202202281625580_migrationDatafile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202202281705105_migrationDatafile2.cs" />
-    <Compile Include="Migrations\202202281705105_migrationDatafile2.designer.cs">
-      <DependentUpon>202202281705105_migrationDatafile2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202202281729479_migrationDatafile3.cs" />
-    <Compile Include="Migrations\202202281729479_migrationDatafile3.designer.cs">
-      <DependentUpon>202202281729479_migrationDatafile3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203041828596_add contact number.cs" />
-    <Compile Include="Migrations\202203041828596_add contact number.designer.cs">
-      <DependentUpon>202203041828596_add contact number.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203050549340_change price to float.cs" />
-    <Compile Include="Migrations\202203050549340_change price to float.designer.cs">
-      <DependentUpon>202203050549340_change price to float.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203050554050_change price to decimal.cs" />
-    <Compile Include="Migrations\202203050554050_change price to decimal.designer.cs">
-      <DependentUpon>202203050554050_change price to decimal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203091150375_migration add role.cs" />
-    <Compile Include="Migrations\202203091150375_migration add role.designer.cs">
-      <DependentUpon>202203091150375_migration add role.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204111709073_create_orders.cs" />
-    <Compile Include="Migrations\202204111709073_create_orders.designer.cs">
-      <DependentUpon>202204111709073_create_orders.cs</DependentUpon>
+    <Compile Include="Migrations\202204242201310_migration1.cs" />
+    <Compile Include="Migrations\202204242201310_migration1.designer.cs">
+      <DependentUpon>202204242201310_migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\ProductPhoto.cs" />
     <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\ShopReports.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -5406,6 +5368,14 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Products\Restock.cshtml" />
+    <Content Include="Views\Users\UserTable.cshtml" />
+    <Content Include="Views\Shared\_PartialViewUsers.cshtml" />
+    <Content Include="Views\ShopReports\Create.cshtml" />
+    <Content Include="Views\ShopReports\Delete.cshtml" />
+    <Content Include="Views\ShopReports\Details.cshtml" />
+    <Content Include="Views\ShopReports\Edit.cshtml" />
+    <Content Include="Views\ShopReports\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -5426,38 +5396,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202202190932524_addUsers.resx">
-      <DependentUpon>202202190932524_addUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202202251054237_Add Product Photo and Products.resx">
-      <DependentUpon>202202251054237_Add Product Photo and Products.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202202281511416_add photos to products.resx">
-      <DependentUpon>202202281511416_add photos to products.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202202281625580_migrationDatafile.resx">
-      <DependentUpon>202202281625580_migrationDatafile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202202281705105_migrationDatafile2.resx">
-      <DependentUpon>202202281705105_migrationDatafile2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202202281729479_migrationDatafile3.resx">
-      <DependentUpon>202202281729479_migrationDatafile3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203041828596_add contact number.resx">
-      <DependentUpon>202203041828596_add contact number.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203050549340_change price to float.resx">
-      <DependentUpon>202203050549340_change price to float.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203050554050_change price to decimal.resx">
-      <DependentUpon>202203050554050_change price to decimal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203091150375_migration add role.resx">
-      <DependentUpon>202203091150375_migration add role.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204111709073_create_orders.resx">
-      <DependentUpon>202204111709073_create_orders.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204242201310_migration1.resx">
+      <DependentUpon>202204242201310_migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -5492,9 +5432,9 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
