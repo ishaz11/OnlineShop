@@ -52,6 +52,9 @@ namespace OnlineShop.Controllers
         public ActionResult Create([Bind(Include = "OrderID,ProductID,UserID,OrderCount,Status,DateCreated")] Orders orders)
         {
             orders.DateCreated = DateTime.Now;
+            orders.DateCompleted = DateTime.Now;
+            orders.DateConfirmed= DateTime.Now;
+            orders.PickUpDate = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Orders.Add(orders);

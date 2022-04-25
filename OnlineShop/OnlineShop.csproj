@@ -5323,6 +5323,7 @@
     <Content Include="MyLayout\plugins\typeahedjs\dist\nfl.json" />
     <Content Include="MyLayout\plugins\typeahedjs\dist\nhl.json" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings1.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
