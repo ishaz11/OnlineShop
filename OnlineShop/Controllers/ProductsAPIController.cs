@@ -19,7 +19,7 @@ namespace OnlineShop.Controllers
         // GET: api/ProductsAPI
         public IQueryable<Products> GetProducts()
         {
-            return db.Products;
+            return db.Products.Where(x=>x.Qty >= 1);
         }
 
         // GET: api/ProductsAPI/5
