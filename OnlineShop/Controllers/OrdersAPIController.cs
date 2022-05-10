@@ -16,6 +16,29 @@ namespace OnlineShop.Controllers
     {
         private OnlineShopDbContext db = new OnlineShopDbContext();
 
+
+        [Route("api/SubmitOrders")]
+        public IHttpActionResult SubmitOrders(Orders orders)
+        {
+
+            orders.DateCreated = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "Singapore Standard Time");
+            orders.DateCompleted = DateTime.UtcNow;
+            orders.DateConfirmed = DateTime.UtcNow;
+            orders.PickUpDate = DateTime.UtcNow;
+            orders.Status = "Pending";
+            if (ModelState.IsValid)
+            {
+                db.Orders.Add(orders);
+                db.SaveChanges();
+                return Ok(orders);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+        }
+
+
         // GET: api/OrdersAPI
         public IQueryable<Orders> GetOrders()
         {
