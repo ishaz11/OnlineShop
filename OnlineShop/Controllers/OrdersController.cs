@@ -128,6 +128,16 @@ namespace OnlineShop.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Confirm(int? id,string action)
+        {
+            Orders order = db.Orders.Find(id);
+            if (action == "confirm")
+            {
+
+            }
+            return View(order);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
